@@ -1,0 +1,158 @@
+.intro {
+  font-weight: 700;
+  @include adaptiveValue('padding-top', 224, 124);
+  @include adaptiveValue('padding-bottom', 70, 20);
+  background: url(../img/intro/intro_bg_mobile.png) center 118%/100% no-repeat;
+
+  @media (min-width: $mobile) {
+    background: url(../img/intro/intro_bg_tablet.png) center 107%/100% no-repeat;
+  }
+
+  @media (min-width: $tablet) {
+    background: url(../img/intro/intro_bg_desctop.png) right 0 top 0 / auto
+      no-repeat;
+  }
+
+  &__top {
+    @media (min-width: $tablet) {
+      display: flex;
+    }
+  }
+
+  &__left {
+    @media (min-width: $tablet) {
+      width: percent(680, 1170);
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @media (min-width: $tablet) {
+      text-align: left;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include adaptiveValue('row-gap', 40, 20);
+    @include adaptiveValue('margin-top', 68, 14);
+
+    @media (min-width: $mobile) {
+      justify-content: center;
+      flex-direction: row;
+      column-gap: rem(50);
+    }
+
+    @media (min-width: $tablet) {
+      justify-content: start;
+    }
+  }
+
+  &__images {
+    position: relative;
+    height: rem(250);
+    margin-top: rem(40);
+    flex: 1;
+
+    @media (min-width: $mobile) {
+      min-height: rem(350);
+      margin-top: rem(70);
+    }
+
+    @media (min-width: $tablet) {
+      min-height: rem(570);
+      margin-top: 0;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    box-shadow: -8px -8px 0px rgba(0, 0, 0, 0.15),
+      8px 8px 0px rgba(31, 32, 37, 0.15), 20px 20px 100px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+
+    &-1 {
+      top: rem(10);
+      left: rem(-20);
+
+      @media (min-width: $mobile) {
+        top: 0;
+        left: percent(120, 650);
+      }
+    }
+
+    &-2 {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+
+      @media (min-width: $tablet) {
+        bottom: unset;
+        left: unset;
+        transform: translate(0);
+        top: percent(105, 570);
+        right: percent(-55, 650);
+      }
+    }
+    &-3 {
+      display: none;
+
+      @media (min-width: $mobile) {
+        display: block;
+        top: rem(50);
+        left: rem(-20);
+      }
+
+      @media (min-width: $tablet) {
+        top: unset;
+        left: 0;
+        bottom: percent(89, 570);
+      }
+    }
+    &-4 {
+      top: 0;
+      right: rem(-20);
+      @media (min-width: $tablet) {
+        top: unset;
+        bottom: 0;
+        right: percent(-180, 650);
+      }
+    }
+  }
+
+  &__subtitle {
+    @include adaptiveValue('margin-top', 48, 60);
+    margin-bottom: rem(30);
+    @include adaptiveValue('font-size', 20, 18);
+    line-height: math.div(26, 18);
+  }
+
+  &__companies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+
+    @media (min-width: $mobile) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+//========================================================================================================================================================
+.company {
+  &__box {
+    background-color: var(--light_2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include adaptiveValue('gap', 20, 10);
+    padding: rem(20);
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: math.div(24, 16);
+  }
+}

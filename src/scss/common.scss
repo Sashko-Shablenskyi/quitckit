@@ -1,0 +1,127 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.btn {
+  display: flex;
+  align-items: center;
+  padding: rem(10) rem(15);
+  gap: rem(10);
+  background: var(--primary_normal);
+  box-shadow: 0 rem(5) rem(15) var(--dark_2);
+  transition: all 0.2s;
+  font-weight: 700;
+  line-height: math.div(24, 16);
+
+  @media (min-width: $mobile) {
+    padding: rem(15) rem(20);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: var(--primary_dark);
+    }
+  }
+
+  &--big {
+    padding: rem(20) rem(30);
+
+    &-with-icon {
+      gap: rem(20);
+      padding: rem(20) rem(20) rem(20) rem(30);
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(10);
+        background-color: var(--light_10);
+        border: 1px solid var(--light_10);
+        height: rem(24);
+        aspect-ratio: 1;
+      }
+    }
+  }
+
+  &--translucent {
+    background: var(--light_10);
+    padding: rem(15) rem(20);
+    span {
+      display: none;
+    }
+
+    @media (min-width: $mobile) {
+      padding: rem(20) rem(30);
+    }
+
+    &-with-icon {
+      span {
+        display: none;
+      }
+
+      @media (min-width: $mobile) {
+        span {
+          display: inline;
+          color: var(--primary_normal);
+        }
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+.title {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(25);
+  font-weight: 900;
+  &--big {
+    @include adaptiveValue('row-gap', 30, 20, 0, 768, 375);
+  }
+
+  &__label {
+    font-size: rem(12);
+    line-height: math.div(16, 12);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    @include adaptiveValue('font-size', 46, 28);
+    line-height: math.div(36, 28);
+    &--big {
+      @include adaptiveValue('font-size', 78, 40, 0, 768, 375);
+      line-height: math.div(48, 40);
+      text-transform: capitalize;
+      padding: rem(0) rem(20);
+      @media (min-width: $tablet) {
+        padding: 0;
+      }
+    }
+
+    &--small {
+      @include adaptiveValue('font-size', 36, 22);
+      line-height: math.div(34, 22);
+    }
+
+    &--primary {
+      span {
+        color: var(--primary_normal);
+      }
+    }
+
+    &--accent_1 {
+      span {
+        color: var(--accent_1_normal);
+      }
+    }
+    &--accent_2 {
+      span {
+        color: var(--accent_2_normal);
+      }
+    }
+  }
+
+  &__descr {
+    font-weight: 400;
+    font-size: rem(18);
+    line-height: math.div(26, 18);
+  }
+}

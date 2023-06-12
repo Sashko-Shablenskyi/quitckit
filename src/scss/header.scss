@@ -1,0 +1,100 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include adaptiveValue('padding-top', 30, 20);
+  @include adaptiveValue('padding-bottom', 30, 20);
+  z-index: 10;
+
+  transition: all 0.3s;
+
+  &--scrolled {
+    background-color: var(--dark_100);
+    padding-top: rem(15);
+    padding-bottom: rem(15);
+  }
+  &__container {
+    display: flex;
+    @include adaptiveValue('column-gap', 50, 20, 0, 1440, 768);
+  }
+
+  &__logo {
+    z-index: 10;
+  }
+
+  &__btn {
+    margin: 0 0 0 auto;
+    z-index: 10;
+  }
+}
+
+//====================================================================================================
+.menu {
+  display: flex;
+  align-items: center;
+  &__body {
+    position: absolute;
+    top: rem(-30);
+    right: -100%;
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark_100);
+
+    @media (min-width: $mobile) {
+      position: static;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+    }
+
+    .menu-open & {
+      right: 0;
+    }
+  }
+
+  &__icon {
+    height: rem(44);
+    aspect-ratio: 1;
+    transition: all 0.3s;
+
+    .menu-open & {
+      transform: rotate(225deg);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(25);
+    font-size: rem(24);
+
+    @media (min-width: $mobile) {
+      flex-direction: row;
+      font-size: rem(16);
+      @include adaptiveValue('column-gap', 40, 20, 0, 1440, 768);
+    }
+  }
+}
+
+//========================================================================================================================================================
+
+//Burger
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    background: url(../img/burger.svg) center center/cover no-repeat;
+    display: block;
+    position: relative;
+    z-index: 5;
+    height: rem(24);
+    aspect-ratio: 1;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+  }
+}
