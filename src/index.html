@@ -5,7 +5,11 @@
   <body>
     <div class="wrapper">
       @@include('html/_header.htm',{})
-      <main class="page"> @@include('html/_intro.htm',{}) </main>
+      <main class="page">
+        @@include('html/_intro.htm',{}) @@include('html/_dashboard.htm',{})
+        @@include('html/_layouts.htm',{}) @@include('html/_analytics.htm',{})
+        <!-- @@include('html/_benefits.htm',{}) -->
+      </main>
       @@include('html/_footer.htm',{})
     </div>
     @@include('html/_js.htm',{})

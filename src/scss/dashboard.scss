@@ -1,0 +1,39 @@
+.dashboard {
+  padding-top: rem(40);
+  @include adaptiveValue('padding-bottom', 150, 135, 0, 768, 375);
+  background: url(../img/dashboard/dashboard_bg_mobile.png) left bottom/ auto
+    no-repeat;
+  @media (min-width: $mobile) {
+    background: url(../img/dashboard/dashboard_bg_tablet.png) left bottom/ auto
+      no-repeat;
+  }
+
+  @media (min-width: $tablet) {
+    background: url(../img/dashboard/dashboard_bg_desctop.png) left bottom/ auto
+      no-repeat;
+  }
+
+  &__container {
+    position: relative;
+
+    @media (min-width: em(1315)) {
+      min-height: rem(1020);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    @media (min-width: em(1315)) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: percent(1270, 1170);
+    }
+  }
+}

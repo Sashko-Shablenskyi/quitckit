@@ -70,7 +70,7 @@
 .title {
   display: flex;
   flex-direction: column;
-  row-gap: rem(25);
+  row-gap: rem(20);
   font-weight: 900;
   &--big {
     @include adaptiveValue('row-gap', 30, 20, 0, 768, 375);
@@ -123,5 +123,9 @@
     font-weight: 400;
     font-size: rem(18);
     line-height: math.div(26, 18);
+
+    &--small {
+      font-size: rem(16);
+    }
   }
 }
